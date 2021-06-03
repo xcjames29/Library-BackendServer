@@ -1,0 +1,16 @@
+{
+  "name": "libraryproject",
+  "version": "1.0.0",
+  "description": "Console based library management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Clark Evangelista",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.12.12",
+    "readline-sync": "^1.4.10"
+  }
+}
