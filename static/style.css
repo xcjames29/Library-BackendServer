@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(127, 189, 168);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 50px;
+    gap: 20px;
+}
+
+div{
+    border: 5px solid rgb(61, 61, 61);
+    padding: 10px 20px;
+    background-color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 20px;
+    min-height: 300px;
+    width: 50vw;
+    padding: 20px 50px;   
+    align-self: center;
+}
+
+form input{
+    font-size: 24px;
+    width: 80%;
+}
+
+form select{
+    font-size: 24px;
+}
+form label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form button{
+    font-size: 24px;
+    padding: 10px 20px;
+}

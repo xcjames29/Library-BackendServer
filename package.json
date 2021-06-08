@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon app.js"
   },
   "author": "Clark Evangelista",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "mongoose": "^5.12.12",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2",
     "readline-sync": "^1.4.10"
   }
 }

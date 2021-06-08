@@ -8,6 +8,7 @@ const printAllBooks = async () => {
         console.log(e.title +" | Price: " + e.price +" | Authors:" + e.authors  +" | Category: " + e.category.name); 
     });
     console.log("---------");
+    return books
 }
 
 

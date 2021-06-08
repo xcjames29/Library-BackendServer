@@ -8,6 +8,7 @@ const printAllCategories = async () => {
         console.log(e.name);
     });
     console.log("---------");
+    return(categories)
 }
 
 

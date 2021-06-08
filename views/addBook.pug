@@ -1,0 +1,17 @@
+head 
+    title='Add Book' 
+    link(rel="stylesheet", href="style.css")
+body 
+    h1 Add Book 
+    form(action="/books" method="post") 
+        label(for="title") Title:  
+        input(type="text", name="title", placeholder="Book title")
+        label(for="author") Author/s: 
+        input(type="text", name="author", placeholder='Authors - (if multiple add , before next)')
+        label(for="price") Price: 
+        input(type="number", name="price", placeholder='Price')
+        label(for="category") Category: 
+        select(name="category")
+            each variable in categories
+                option(value=variable.name) #{variable.name}
+        button(type="submit") Add Book
