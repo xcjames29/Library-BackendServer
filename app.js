@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-
+const cors = require('cors')
 const CategoryController = require("./controllers/categoryController");
 
 const MemberController = require("./controllers/memberController");
@@ -10,19 +10,21 @@ const app = express();
 const PORT = 8111;
 
 const bookRouter = require("./routes/books")
-
+const authRouter = require("./routes/auth")
 
 app.use(morgan('dev'));
 app.set('view engine','pug');
 app.use(express.static('static'))
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
 
+app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 app.get("/" ,(req,res)=>{
     res.render('index', {message:"Welcome to MyLibrary!"});
 })
 
 app.use("/books",bookRouter)
+app.use("/signup",authRouter)
 app.get("/addBook", async(req,res)=>{
     await mongoose.connect('mongodb://localhost/libraryDb', {
             useNewUrlParser: true,
