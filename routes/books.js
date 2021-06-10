@@ -12,7 +12,8 @@ router
             useUnifiedTopology: true
         });
         let books = await BookController.printAllBooks();
-        res.render('books' ,{message:'List of Books' ,data:books})
+        //res.render('books' ,{message:'List of Books' ,data:books})
+        res.json(books);
     }).post(async( req, res) => {
         await mongoose.connect('mongodb://localhost/libraryDb', {
             useNewUrlParser: true,
@@ -29,6 +30,15 @@ router
         await BookController.addBook(newObj);
         console.log(newObj);
         res.writeHead(301,{'Location':"/books"});
+        res.end();
+    })
+    .delete(async(req,res)=>{
+        console.log(req.body);
+        await mongoose.connect('mongodb://localhost/libraryDb', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        await BookController.deleteBookId(req.body._id)
         res.end();
     })
 

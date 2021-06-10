@@ -52,6 +52,28 @@ const deleteBook = async(title) =>{
      }
 }
 
+const deleteBookId = async(id) =>{
+    try {
+        let data =  await Book.findOne({_id:id});
+        if(data){
+         await Book.deleteOne({_id:id}, (err)=>{
+             if(err){
+                 console.log(err)
+             }
+             else{
+              console.log(" deleted.")
+             }
+         })
+        }
+        else{
+            console.log("Book is not available!");
+        }
+     }
+     catch (e) {
+         console.log(e.message);
+     }
+}
+
 const searchBook= async (title)=>{
     let data =  await Book.findOne({title:title}).populate('category');
     console.log("---------");
@@ -82,5 +104,6 @@ module.exports = {
     deleteBook,
     searchBook,
     searchBookCategory,
-    getBookId
+    getBookId,
+    deleteBookId
 };
