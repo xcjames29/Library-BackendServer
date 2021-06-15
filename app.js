@@ -14,7 +14,6 @@ const PORT = 8111;
 
 const bookRouter = require("./routes/books")
 const authRouter = require("./routes/auth")
-const loginRouter = require("./routes/login")
 app.use(morgan('dev'));
 app.set('view engine','pug');
 app.use(express.static('static'))
@@ -57,10 +56,8 @@ let validateRequest = ((req,res,next)=>{
         res.status(403).send("Invalid Token Provided");
     }
 })
-//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbXBvbEBzYW1wb2wucG9sIiwiaWF0IjoxNjIzNjY0MTQ1NDUxfQ.l5y5TUEqW0df5u2p-JJpMhYZb6VCMIKCwd5YP5f8P5o"
 app.use("/books", validateRequest,bookRouter);
-app.use("/signup",authRouter);
-app.use("/login",loginRouter);
+app.use(authRouter);
 
 
 
